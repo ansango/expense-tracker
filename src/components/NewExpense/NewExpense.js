@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { BaseButton, Container } from "../UI";
 import ExpenseForm from "./ExpenseForm";
-import "./NewExpense.css";
 
 const NewExpense = ({ onAddExpense }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -22,9 +22,13 @@ const NewExpense = ({ onAddExpense }) => {
   };
 
   return (
-    <div className="new-expense">
+    <Container>
       {!isEditing && (
-        <button onClick={startEditingHandler}>Add New Expense</button>
+        <BaseButton
+          onClick={startEditingHandler}
+          children={"Add Expense"}
+          kind={"success"}
+        />
       )}
       {isEditing && (
         <ExpenseForm
@@ -32,7 +36,7 @@ const NewExpense = ({ onAddExpense }) => {
           onCancel={cancelEditingHandler}
         />
       )}
-    </div>
+    </Container>
   );
 };
 

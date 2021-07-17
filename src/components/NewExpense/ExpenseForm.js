@@ -1,6 +1,6 @@
 import { useState } from "react";
-
-import "./ExpenseForm.css";
+import { BaseButton } from "../UI";
+import { InputForm } from "../UI/Form";
 
 const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -35,39 +35,43 @@ const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
   return (
     <div>
       <form onSubmit={submitHandler}>
-        <div className="new-expense__controls">
-          <div className="new-expense__control">
-            <label>Title</label>
-            <input
-              type="text"
-              value={enteredTitle}
-              onChange={titleChangeHandler}
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+          <InputForm
+            label={"Title"}
+            type="text"
+            placeholder={"Title"}
+            onChange={titleChangeHandler}
+            value={enteredTitle}
+          />
+          <InputForm
+            label={"Amount"}
+            type="number"
+            placeholder={"Amount"}
+            min={"0.01"}
+            step={"0.01"}
+            onChange={amountChangeHandler}
+            value={enteredAmount}
+          />
+          <InputForm
+            label={"Date"}
+            type="date"
+            min="2019-01-01"
+            max="2022-12-31"
+            value={enteredDate}
+            onChange={dateChangeHandler}
+          />
+          <div className="flex justify-end">
+            <BaseButton
+              onClick={onCancel}
+              children={"Cancel"}
+              kind={"danger"}
+            />
+            <BaseButton
+              children={"Add Expense"}
+              type={"submit"}
+              kind={"success"}
             />
           </div>
-          <div className="new-expense__control">
-            <label>Amount</label>
-            <input
-              type="number"
-              min="0.01"
-              step="0.01"
-              value={enteredAmount}
-              onChange={amountChangeHandler}
-            />
-          </div>
-          <div className="new-expense__control">
-            <label>Date</label>
-            <input
-              type="date"
-              min="2019-01-01"
-              max="2022-12-31"
-              value={enteredDate}
-              onChange={dateChangeHandler}
-            />
-          </div>
-        </div>
-        <div className="new-expense__actions">
-          <button onClick={onCancel}>Cancel</button>
-          <button type="submit">Add Expense</button>
         </div>
       </form>
     </div>
