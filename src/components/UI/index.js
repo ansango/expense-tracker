@@ -8,4 +8,4 @@ export {
   LoaderCard,
 } from "./View";
 export { ToggleTheme, BaseButton } from "./Buttons";
-export { Card } from "./Cards";
+

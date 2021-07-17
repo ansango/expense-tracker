@@ -39,8 +39,10 @@ const App = () => {
       <View>
         <Navigation />
         <Container>
-          <NewExpense onAddExpense={addExpenseHandler} />
-          <Expenses items={expenses} />
+          <div className="max-w-xl mx-auto">
+            <NewExpense onAddExpense={addExpenseHandler} />
+            <Expenses items={expenses} />
+          </div>
         </Container>
         <Footer />
       </View>

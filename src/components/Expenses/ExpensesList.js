@@ -1,9 +1,7 @@
-import "./ExpensesList.css";
 import ExpenseItem from "./ExpenseItem";
+import { Subtitle } from "../UI";
 
-const NotExpenses = () => (
-  <h2 className="expenses-list__fallback">Found no expenses</h2>
-);
+const NotExpenses = () => <Subtitle subtitle={"Found no expenses"} />;
 
 const ExistExpenses = ({ items }) => (
   <ul className="expenses-list">

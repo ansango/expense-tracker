@@ -4,7 +4,7 @@ const Chart = ({ dataPoints }) => {
   const dataPointValues = dataPoints.map((dataPoint) => dataPoint.value);
   const totalMax = Math.max(...dataPointValues);
   return (
-    <div className="p-4 rounded-xl bg-red-300 text-center flex justify-between h-40">
+    <div className="p-4 rounded-xl bg-red-300 dark:bg-gray-800 text-center flex justify-between h-40">
       {dataPoints.map((dataPoint) => (
         <ChartBar
           key={dataPoint.label}
