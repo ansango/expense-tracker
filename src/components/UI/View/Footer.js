@@ -7,8 +7,8 @@ export const Footer = () => (
     <div className="flex flex-col justify-center sm:flex-row">
       <p className="flex items-center justify-center">
         <span className="mr-1">Made with </span>
-        {icons.map((Icon) => (
-          <Icon className="mx-1" />
+        {icons.map((Icon, index) => (
+          <Icon key={index} className="mx-1" />
         ))}
       </p>
       <p className="text-center mx-1">

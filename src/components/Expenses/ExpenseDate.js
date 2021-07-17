@@ -1,15 +1,14 @@
 import { Card } from "../UI";
-import "./ExpenseDate.css";
 
 const ExpenseDate = ({ date }) => {
   const month = date.toLocaleString("en-US", { month: "long" });
   const day = date.toLocaleString("en-US", { day: "2-digit" });
   const year = date.getFullYear();
   return (
-    <Card className="expense-date">
-      <div className="expense-date__month">{month}</div>
-      <div className="expense-date__year">{year}</div>
-      <div className="expense-date__day">{day}</div>
+    <Card className="flex flex-col justify-center items-center w-20 h-20 border-2 border-red-500 text-white bg-red-400">
+      <div className="text-xs font-bold">{month}</div>
+      <div className="text-xs">{year}</div>
+      <div className="text-2xl">{day}</div>
     </Card>
   );
 };
